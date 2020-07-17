@@ -10,6 +10,8 @@ COPY ./ ./
 
 RUN yarn run build
 
+RUN npm rebuild
+
 EXPOSE 1337
 
 CMD [ "yarn", "run", "start" ]
