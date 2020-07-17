@@ -16,6 +16,19 @@
             repo: 'https://github.com/mocchi-app/mocchi-deployment.git'
             dest: ~/deploy-{{ timestamp }}
 
+        - name: Start up database
+          docker_compose:
+            project_src: ~/deploy-{{ timestamp }}
+            project_name: mocchi
+            services: postgres-articles-strapi-giftjet
+            state: present
+            pull: yes
+            restarted: true
+            environment:
+              POSTGRES_GIFTJET_USER: "{{ lookup('env', 'POSTGRES_GIFTJET_USER') }}"
+              POSTGRES_GIFTJET_PASSWORD: "{{ lookup('env', 'POSTGRES_GIFTJET_PASSWORD') }}"
+              POSTGRES_GIFTJET_DB: "{{ lookup('env', 'POSTGRES_GIFTJET_DB') }}"
+
         - name: Start up application
           docker_compose:
             project_src: ~/deploy-{{ timestamp }}

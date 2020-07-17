@@ -50,3 +50,6 @@ jobs:
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           ANSIBLE_DEPRECATION_WARNINGS: 'false'
+          POSTGRES_GIFTJET_USER: ${{ secrets.POSTGRES_GIFTJET_USER }}
+          POSTGRES_GIFTJET_PASSWORD: ${{ secrets.POSTGRES_GIFTJET_PASSWORD }}
+          POSTGRES_GIFTJET_DB: ${{ secrets.POSTGRES_GIFTJET_DB }}
