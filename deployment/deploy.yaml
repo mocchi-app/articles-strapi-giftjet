@@ -24,10 +24,10 @@
             state: present
             pull: yes
             restarted: true
-            environment:
-              POSTGRES_GIFTJET_USER: "{{ lookup('env', 'POSTGRES_GIFTJET_USER') }}"
-              POSTGRES_GIFTJET_PASSWORD: "{{ lookup('env', 'POSTGRES_GIFTJET_PASSWORD') }}"
-              POSTGRES_GIFTJET_DB: "{{ lookup('env', 'POSTGRES_GIFTJET_DB') }}"
+          environment:
+            POSTGRES_GIFTJET_USER: "{{ lookup('env', 'POSTGRES_GIFTJET_USER') }}"
+            POSTGRES_GIFTJET_PASSWORD: "{{ lookup('env', 'POSTGRES_GIFTJET_PASSWORD') }}"
+            POSTGRES_GIFTJET_DB: "{{ lookup('env', 'POSTGRES_GIFTJET_DB') }}"
 
         - name: Start up application
           docker_compose:
