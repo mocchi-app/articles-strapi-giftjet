@@ -4,12 +4,12 @@ WORKDIR /usr/app
 
 COPY ./package*.json ./
 
-RUN npm install --production
+RUN yarn install --production
 
 COPY ./ ./
 
-RUN npm run build
+RUN yarn run build
 
 EXPOSE 1337
 
-CMD [ "npm", "run", "start" ]
+CMD [ "yarn", "run", "start" ]
